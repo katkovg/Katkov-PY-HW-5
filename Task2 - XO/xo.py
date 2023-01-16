@@ -1,6 +1,7 @@
 from random import randint, choice
 import functions
 import intellect
+import os
 
 field, players = functions.create_empty_field(), ('бот', 'игрок')
 
@@ -11,10 +12,11 @@ player_symbol, bot_symbol = '', ''
 if current_player == 'игрок': player_symbol, bot_symbol = 'X', 'O'
 else: player_symbol, bot_symbol = 'O', 'X'
 
-print(f'\nЖеребьёвка определила, что первым будет ходить {current_player}.\nВаш символ: {player_symbol}.')
-
 while True:
 
+    os.system('cls')
+    print(f'\nЖеребьёвка определила, что первым будет ходить {current_player}.\nВаш символ: {player_symbol}.')
+    
     if current_player == 'игрок':
 
         functions.print_field(field)
@@ -27,18 +29,22 @@ while True:
 
         if is_victory == True:
             functions.print_field(field)
+            os.system('cls')
             print('\nВы победили!')
             break
 
         current_player = 'бот'
 
     is_draw = functions.draw_check(field)
-    if is_draw == True: 
+    if is_draw == True:
+        os.system('cls')
+        print(f'\nЖеребьёвка определила, что первым будет ходить {current_player}.\nВаш символ: {player_symbol}.')
         functions.print_field(field)
         print('\nВсе позиции заняты. Игра завершена. Ничья.')
         break
 
     if current_player == 'бот':
+    
 
         x, y = randint(1,3), randint(1,3)
         while field[x][y] in 'XO': x, y = randint(1,3), randint(1,3)
@@ -52,6 +58,8 @@ while True:
         is_victory = functions.victory_check(field)
 
         if is_victory == True:
+            os.system('cls')
+            print(f'\nЖеребьёвка определила, что первым будет ходить {current_player}.\nВаш символ: {player_symbol}.')
             functions.print_field(field)
             print('\nПобедил бот.')
             break
@@ -59,7 +67,9 @@ while True:
         current_player = 'игрок'
 
     is_draw = functions.draw_check(field)
-    if is_draw == True: 
+    if is_draw == True:
+        os.system('cls')
+        print(f'\nЖеребьёвка определила, что первым будет ходить {current_player}.\nВаш символ: {player_symbol}.')
         functions.print_field(field)
         print('\nВсе позиции заняты. Игра завершена. Ничья.')
         break
