@@ -13,11 +13,11 @@ def horizontal_lucky_move(field, bot_symbol, player_symbol, x, y):
         return False, x, y
     
     is_lucky_move, x, y = bot_position_assignment(bot_symbol, '.', x, y, field)
-    if is_lucky_move == True: return x, y
+    if is_lucky_move: return x, y
     is_lucky_move, x, y = bot_position_assignment(player_symbol, '.', x, y, field)
-    if is_lucky_move == True: return x, y
+    if is_lucky_move: return x, y
     is_lucky_move, x, y = bot_position_assignment('.', bot_symbol, x, y, field)
-    if is_lucky_move == True: return x, y
+    if is_lucky_move: return x, y
     
     return x, y
     
@@ -37,11 +37,11 @@ def vertical_lucky_move(field, bot_symbol, player_symbol, x, y):
         return False, x, y
 
     is_lucky_move, x, y = bot_position_assignment(bot_symbol, '.', x, y, field)
-    if is_lucky_move == True: return x, y
+    if is_lucky_move: return x, y
     is_lucky_move, x, y = bot_position_assignment(player_symbol, '.', x, y, field)
-    if is_lucky_move == True: return x, y
+    if is_lucky_move: return x, y
     is_lucky_move, x, y = bot_position_assignment('.', bot_symbol, x, y, field)
-    if is_lucky_move == True: return x, y
+    if is_lucky_move: return x, y
     
     return x, y
 
@@ -67,18 +67,18 @@ def diagonal_lucky_move(field, bot_symbol, player_symbol, x, y):
         side_diag.append(field[row][4-row])
 
     is_lucky_move, x, y = bot_position_assignment(main_diag, bot_symbol, '.', x, y, field)
-    if is_lucky_move == True: return x, y
+    if is_lucky_move: return x, y
     is_lucky_move, x, y = bot_position_assignment(side_diag, bot_symbol, '.', x, y, field)
-    if is_lucky_move == True: return x, y
+    if is_lucky_move: return x, y
 
     is_lucky_move, x, y = bot_position_assignment(main_diag, player_symbol, '.', x, y, field)
-    if is_lucky_move == True: return x, y
+    if is_lucky_move: return x, y
     is_lucky_move, x, y = bot_position_assignment(side_diag, player_symbol, '.', x, y, field)
-    if is_lucky_move == True: return x, y
+    if is_lucky_move: return x, y
 
     is_lucky_move, x, y = bot_position_assignment(main_diag, '.', bot_symbol, x, y, field)
-    if is_lucky_move == True: return x, y
+    if is_lucky_move: return x, y
     is_lucky_move, x, y = bot_position_assignment(side_diag, '.', bot_symbol, x, y, field)
-    if is_lucky_move == True: return x, y
+    if is_lucky_move: return x, y
 
     return x, y

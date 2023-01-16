@@ -16,7 +16,7 @@ while True:
 
     os.system('cls')
     print(f'\nЖеребьёвка определила, что первым будет ходить {current_player}.\nВаш символ: {player_symbol}.')
-    
+
     if current_player == 'игрок':
 
         functions.print_field(field)
@@ -27,7 +27,7 @@ while True:
 
         is_victory = functions.victory_check(field)
 
-        if is_victory == True:
+        if is_victory:
             functions.print_field(field)
             os.system('cls')
             print('\nВы победили!')
@@ -36,7 +36,7 @@ while True:
         current_player = 'бот'
 
     is_draw = functions.draw_check(field)
-    if is_draw == True:
+    if is_draw:
         os.system('cls')
         print(f'\nЖеребьёвка определила, что первым будет ходить {current_player}.\nВаш символ: {player_symbol}.')
         functions.print_field(field)
@@ -57,7 +57,7 @@ while True:
 
         is_victory = functions.victory_check(field)
 
-        if is_victory == True:
+        if is_victory:
             os.system('cls')
             print(f'\nЖеребьёвка определила, что первым будет ходить {current_player}.\nВаш символ: {player_symbol}.')
             functions.print_field(field)
@@ -67,7 +67,7 @@ while True:
         current_player = 'игрок'
 
     is_draw = functions.draw_check(field)
-    if is_draw == True:
+    if is_draw:
         os.system('cls')
         print(f'\nЖеребьёвка определила, что первым будет ходить {current_player}.\nВаш символ: {player_symbol}.')
         functions.print_field(field)
